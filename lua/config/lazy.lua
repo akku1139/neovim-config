@@ -1,12 +1,12 @@
 local function create_directory_if_symlink_target_not_exist(p)
-  local is_symlink = vim.loop.fs_stat(p) and vim.loop.fs_stat(p).type == "symlink"
+  local is_symlink = vim.uv.fs_lstat(p) and vim.uv.fs_lstat(p).type == "link"
 
   if is_symlink then
-    local target_path = vim.loop.fs_readlink(p)
-    local target_stat = vim.loop.fs_stat(target_path)
+    local target_path = vim.uv.fs_readlink(p)
+    local target_stat = vim.uv.fs_stat(target_path)
 
-    if not target_stat or target_stat.type ~= "directory" then
-      local ok, err = vim.loop.fs_mkdir(target_path)
+    if not target_stat then
+      local ok, err = vim.uv.fs_mkdir(target_path, tonumber("700", 8))
       if not ok then
         vim.notify("failed to mkdir: " .. err, vim.log.levels.ERROR)
       end
@@ -14,7 +14,7 @@ local function create_directory_if_symlink_target_not_exist(p)
   end
 end
 
-create_directory_if_symlink_target_not_exist(vim.fn.stdpath("data") .. "/lazy/")
+create_directory_if_symlink_target_not_exist(vim.fn.stdpath("data") .. "/lazy")
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
