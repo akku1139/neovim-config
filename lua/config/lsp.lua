@@ -33,6 +33,7 @@ local function use_pnpm(config, pkg)
 end
 
 --- TypeScript
+--- TODO: use https://github.com/pmizio/typescript-tools.nvim
 use_pnpm(l.ts_ls, { "typescript", "typescript-language-server" })
 
 --- Svelte
