@@ -22,3 +22,23 @@ require("config.lsp")
 vim.diagnostic.config({
   virtual_text = true
 })
+
+-- https://zenn.dev/simpleform_blog/articles/20241202-neovim_python_lsp
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*.py",
+  callback = function()
+    local utils = require "utils.project"
+    utils.wait_for_lsp("pyright", function()
+      local current_file_path = vim.fn.expand "%:p:h"
+      local venv_path = utils.recursive_find_project_root(current_file_path, ".venv")
+
+      if venv_path == nil then
+        vim.notify("No virtual environment found in current or parent directories.", vim.log.levels.WARN)
+        return
+      end
+
+      require("venv-selector").activate_from_path(string.format("%s/bin/python", venv_path))
+    end)
+  end,
+})
+
