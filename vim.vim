@@ -18,3 +18,5 @@ autocmd TermOpen * startinsert
 "set tabstop=2
 "set shiftwidth=2 
 
+" Keybinds
+map <space>e :lua vim.diagnostic.open_float(0, {scope="line"})<CR>
