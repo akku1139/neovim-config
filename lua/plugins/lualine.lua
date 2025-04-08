@@ -4,6 +4,7 @@ return  {
   opts = {
     options = {
       globalstatus = true,
+      theme = "vscode",
     }
   },
   lazy = false,
