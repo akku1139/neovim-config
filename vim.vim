@@ -8,7 +8,7 @@ nnoremap <Plug>(esc)<ESC> i<ESC>
 autocmd TermOpen * startinsert
 
 " File manager
-Neotree show
+"Neotree show
 
 " Line number
 "set number
