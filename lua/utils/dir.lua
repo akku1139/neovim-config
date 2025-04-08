@@ -19,7 +19,7 @@ M.create_directory_if_symlink_target_not_exist = function(p)
 end
 
 M.get_data_path = function(p)
-  local path = vim.fn.stdpath("data") .. p
+  local path = vim.fn.stdpath("data") .. "/" .. p
   M.create_directory_if_symlink_target_not_exist(path)
   return path
 end
