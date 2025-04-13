@@ -1,3 +1,5 @@
+vim.uv.fs_mkdir(vim.fn.stdpath("cache"), tonumber("700", 8))
+
 require("config.lazy")
 
 vim.o.number = true
