@@ -38,7 +38,7 @@ use_pnpm(l.ts_ls, { "typescript", "typescript-language-server" })
 
 --- Svelte
 -- npm: svelte-language-server
--- l.svelte.setup{}
+use_pnpm(l.svelte, { "svelte-language-server" })
 -- let g： svelte_indent_script = 0
 -- let g： svelte_indent_style = 0
 
