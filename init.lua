@@ -59,3 +59,6 @@ end
 vim.api.nvim_set_keymap('n', '<Home>', '', { callback = smart_home })
 vim.api.nvim_set_keymap('i', '<Home>', '', { callback = smart_home })
 vim.api.nvim_set_keymap('v', '<Home>', '', { callback = smart_home })
+
+require("local.main")
+
