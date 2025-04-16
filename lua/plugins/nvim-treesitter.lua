@@ -14,7 +14,7 @@ return {
   opts = {
     highlight = { enable = true },
     indent = { enable = true },
-    auto_install = false,
+    auto_install = true,
     parser_install_dir = parser_install_dir,
   },
 }
