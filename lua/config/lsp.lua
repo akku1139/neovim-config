@@ -42,6 +42,10 @@ use_pnpm(l.svelte, { "svelte-language-server" })
 -- let g： svelte_indent_script = 0
 -- let g： svelte_indent_style = 0
 
+--- CSS
+-- npm: vscode-langservers-extracted
+use_pnpm(l.cssls, { "vscode-langservers-extracted" })
+
 --- Lua
 -- termux-apt: lua-language-server
 -- l.lua_ls.setup{}
