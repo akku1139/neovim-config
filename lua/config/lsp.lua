@@ -1,9 +1,13 @@
 local dir = require("utils.dir")
 
-local l = require'lspconfig'
+local l = require("lspconfig")
 
-local node_path = dir.get_data_path("/lsp/node")
-local node_modules_path = node_path .. "/node_modules/"
+local node_path = vim.fn.stdpath("data") .. "/lsp/node"
+if vim.uv.fs_stat(node_path .. "package.json") then
+  vim.system { "pnpm", "-C", node_path, "install" }
+  dir.get_data_path(node_path .. "/node_modules/")
+end
+local node_modules_path = dir.get_data_path(node_path .. "/node_modules/")
 
 local function use_pnpm(config, pkg)
   --- install packages
