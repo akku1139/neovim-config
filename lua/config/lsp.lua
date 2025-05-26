@@ -59,3 +59,5 @@ use_pnpm(l.cssls, { "vscode-langservers-extracted" })
 
 -- Python
 use_pnpm(l.pyright, { "pyright" })
+
+l.rust_analyzer.setup({})
