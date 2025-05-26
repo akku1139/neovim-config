@@ -13,6 +13,10 @@ return {
     local lspkind = require('lspkind')
 
     return {
+      -- https://github.com/hrsh7th/nvim-cmp/discussions/1411
+      preselect = cmp.PreselectMode.None,
+      completion = { completeopt = "menu,menuone,noselect" },
+
       sources = {
         { name = "emoji" },
         { name = "nvim_lsp" },
@@ -28,7 +32,7 @@ return {
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.close(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+--        ["<CR>"] = cmp.mapping.confirm({ select = true }),
       }),
       formatting = {
         format = lspkind.cmp_format({
