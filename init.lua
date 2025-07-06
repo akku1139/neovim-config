@@ -1,4 +1,7 @@
+local dir = require("utils.dir")
+
 vim.uv.fs_mkdir(vim.fn.stdpath("cache"), tonumber("700", 8))
+dir.create_directory_if_symlink_target_not_exist(vim.fn.stdpath("state"))
 
 require("config.lazy")
 
