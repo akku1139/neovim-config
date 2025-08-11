@@ -16,6 +16,8 @@ vim.o.expandtab = true
 vim.o.tabstop = 8
 vim.o.shiftwidth = 2
 
+vim.o.wildmode = 'longest,list,full'
+
 vim.cmd("source ~/.config/nvim/vim.vim")
 
 require("config.lsp")
@@ -64,4 +66,3 @@ vim.api.nvim_set_keymap('i', '<Home>', '', { callback = smart_home })
 vim.api.nvim_set_keymap('v', '<Home>', '', { callback = smart_home })
 
 require("local.main")
-
