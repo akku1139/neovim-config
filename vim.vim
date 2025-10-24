@@ -7,6 +7,10 @@ nnoremap <Plug>(esc)<ESC> i<ESC>
 " Default Terminal mode
 autocmd TermOpen * startinsert
 
+" https://qiita.com/Lennon_x00x_/items/e8fa47d27aaab9635161
+"autocmd TermOpen * setlocal norelativenumber
+"autocmd TermOpen * setlocal nonumber
+
 " File manager
 "Neotree show
 
