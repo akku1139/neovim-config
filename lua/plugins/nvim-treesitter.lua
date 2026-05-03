@@ -8,7 +8,6 @@ vim.opt.runtimepath:append(parser_install_dir)
 
 return {
   "nvim-treesitter/nvim-treesitter",
-  main = 'nvim-treesitter.configs', -- important
   event = "BufEnter",
   build = ":TSUpdate",
   opts = {
